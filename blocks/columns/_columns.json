@@ -8,6 +8,7 @@
           "page": {
             "resourceType": "core/franklin/components/columns/v1/columns",
             "template": {
+              "model": "columns",
               "columns": "2",
               "rows": "1"
             }
@@ -33,6 +34,20 @@
           "name": "rows",
           "value": "",
           "label": "Rows"
+        },
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Variant",
+          "valueType": "string",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "Stats", "value": "stats" },
+            { "name": "Features", "value": "features" },
+            { "name": "Media", "value": "media" },
+            { "name": "Footer links", "value": "footer-links" }
+          ]
         }
       ]
     }

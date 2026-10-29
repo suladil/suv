@@ -185,11 +185,23 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['brand', 'sections', 'tools', 'utility'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
+
+  // optional 4th nav section: promo + utility links bar shown above the main nav
+  const navUtility = nav.querySelector('.nav-utility');
+  if (navUtility) {
+    navUtility.remove();
+    navUtility.querySelectorAll('.button-container').forEach((buttonContainer) => {
+      buttonContainer.classList.remove('button-container');
+      buttonContainer.querySelector('.button')?.classList.remove('button');
+    });
+    const promo = navUtility.querySelector('p');
+    if (promo) promo.classList.add('nav-utility-promo');
+  }
 
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
@@ -239,6 +251,12 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  if (navUtility) {
+    const utilityBar = document.createElement('div');
+    utilityBar.className = 'nav-utility-bar';
+    utilityBar.append(navUtility);
+    navWrapper.append(utilityBar);
+  }
   navWrapper.append(nav);
   block.append(navWrapper);
 

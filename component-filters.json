@@ -18,6 +18,7 @@
       "form",
       "hero",
       "image",
+      "quick-actions",
       "quote",
       "search",
       "tabs",
@@ -58,6 +59,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "quick-actions",
+    "components": [
+      "quick-action"
     ]
   },
   {

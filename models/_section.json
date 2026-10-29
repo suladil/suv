@@ -33,6 +33,18 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Light (cream)",
+              "value": "light"
+            },
+            {
+              "name": "Dark (navy)",
+              "value": "dark"
+            },
+            {
+              "name": "Centered",
+              "value": "centered"
             }
           ]
         }
@@ -53,6 +65,7 @@
         "form",
         "hero",
         "image",
+        "quick-actions",
         "quote",
         "search",
         "tabs",

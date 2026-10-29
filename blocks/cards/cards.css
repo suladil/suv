@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity -- variant blocks layer rules by design */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -8,20 +9,306 @@
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-m);
   background-color: var(--background-color);
+  overflow: hidden;
 }
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 24px;
+}
+
+.cards .cards-card-body > :first-child {
+  margin-top: 0;
 }
 
 .cards .cards-card-image {
   line-height: 0;
 }
 
+.cards .cards-card-empty {
+  display: none;
+}
+
 .cards > ul > li img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards h3 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-m);
+}
+
+.cards p {
+  margin: 0.5em 0 0;
+  font-size: var(--body-font-size-s);
+}
+
+/* locations: photo, address, hours, phone, book CTA (VO Vets / West Loop pattern) */
+.cards.locations > ul {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.cards.locations > ul > li {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  border: 0;
+}
+
+.cards.locations > ul > li img {
+  aspect-ratio: 16 / 10;
+}
+
+.cards.locations .cards-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cards.locations .cards-card-body .eyebrow,
+.cards.locations .cards-card-body > p:first-child {
+  color: var(--brand-teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cards.locations h3 a:any-link {
+  color: var(--brand-navy);
+}
+
+.cards.locations .cards-card-body p:has(.icon) {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted-text-color);
+  line-height: 1.45;
+}
+
+.cards.locations .cards-card-body p .icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.cards.locations .cards-card-body p a:any-link:not(.button) {
+  color: var(--brand-navy);
+  font-weight: 700;
+}
+
+.cards.locations .cards-card-body .button-container {
+  display: block;
+  margin: auto 0 0;
+  padding-top: 20px;
+}
+
+.cards.locations .cards-card-body .button-container a.button {
+  width: 100%;
+  margin: 0;
+  padding: 12px 16px;
+  font-size: var(--body-font-size-xs);
+}
+
+/* services: icon cards (West Loop / World of Animals pattern) */
+.cards.services > ul {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.cards.services > ul > li {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.cards.services > ul > li:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.cards .cards-card-icon {
+  margin: 24px 24px 0;
+}
+
+.cards .cards-card-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.cards .cards-card-icon .icon {
+  box-sizing: border-box;
+  width: 56px;
+  height: 56px;
+  padding: 14px;
+  border-radius: 50%;
+  background-color: rgb(201 71 90 / 10%);
+}
+
+.cards.services .cards-card-body {
+  margin-top: 16px;
+}
+
+.cards.services .cards-card-body p {
+  color: var(--muted-text-color);
+}
+
+.cards.services .button-container {
+  display: block;
+  margin: 0;
+}
+
+.cards.services a.button:any-link {
+  margin: 12px 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--brand-coral);
+  font-size: var(--body-font-size-xs);
+}
+
+.cards.services a.button:any-link::after {
+  content: ' →';
+}
+
+.cards.services a.button:hover {
+  text-decoration: underline;
+}
+
+@media (width < 600px) {
+  .cards.services > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cards.services .cards-card-icon {
+    margin: 16px 16px 0;
+  }
+
+  .cards.services .cards-card-icon .icon {
+    width: 44px;
+    height: 44px;
+    padding: 11px;
+  }
+
+  .cards.services .cards-card-body {
+    margin: 12px 16px 16px;
+  }
+
+  .cards.services h3 {
+    font-size: var(--heading-font-size-xs);
+  }
+
+  .cards.services .cards-card-body p:not(.button-container) {
+    display: none;
+  }
+}
+
+/* steps: numbered new-client journey (World of Animals first-time clients pattern) */
+.cards.steps > ul {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px 32px;
+  counter-reset: step;
+}
+
+.cards.steps > ul > li {
+  position: relative;
+  counter-increment: step;
+  border: 0;
+  background-color: transparent;
+  overflow: visible;
+}
+
+.cards.steps .cards-card-body {
+  margin: 0;
+  padding-top: 72px;
+}
+
+.cards.steps .cards-card-body::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--brand-coral);
+  color: var(--background-color);
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.cards.steps .cards-card-body p {
+  color: var(--muted-text-color);
+}
+
+.section.dark .cards.steps .cards-card-body p {
+  color: rgb(255 255 255 / 80%);
+}
+
+.section.dark .cards.steps .cards-card-body::before {
+  background-color: var(--brand-gold);
+  color: var(--brand-navy);
+}
+
+@media (width >= 900px) {
+  .cards.steps > ul > li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: 68px;
+    right: -8px;
+    border-top: 2px dashed rgb(214 175 76 / 60%);
+  }
+}
+
+/* testimonials (Heart of Chelsea quote style, West Loop rating) */
+.cards.testimonials > ul {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.cards.testimonials > ul > li {
+  border: 0;
+  box-shadow: var(--shadow-card);
+}
+
+.cards.testimonials .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 48px);
+}
+
+.cards.testimonials .cards-card-body > p:first-child {
+  display: flex;
+  gap: 2px;
+}
+
+.cards.testimonials .cards-card-body > p:first-child .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.cards.testimonials .cards-card-body > p:nth-child(2) {
+  flex: 1;
+  margin-top: 16px;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.55;
+}
+
+.cards.testimonials .cards-card-body > p:last-child {
+  margin-top: 20px;
+  color: var(--muted-text-color);
+  font-size: var(--body-font-size-xs);
+}
+
+.cards.testimonials .cards-card-body > p:last-child strong {
+  color: var(--brand-navy);
 }

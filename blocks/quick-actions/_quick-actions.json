@@ -1,0 +1,60 @@
+{
+  "definitions": [
+    {
+      "title": "Quick Actions",
+      "id": "quick-actions",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Quick Actions",
+              "filter": "quick-actions"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Quick Action",
+      "id": "quick-action",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Quick Action",
+              "model": "quick-action"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "quick-action",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "icon",
+          "label": "Icon name (e.g. calendar, paw, pill, emergency)"
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Link and short text",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "quick-actions",
+      "components": ["quick-action"]
+    }
+  ]
+}

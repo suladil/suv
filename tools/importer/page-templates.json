@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "consolidated-homepage",
+      "description": "Neutral-brand multi-location veterinary homepage consolidating westloopvet.com (structural base), wofainc.com, heartofchelsea.com and vovets.com. Source: migration-work/consolidation/source/index.html, served locally on port 4600 for import.",
+      "urls": [
+        "http://localhost:4600/index.html"
+      ],
+      "blocks": [
+        {
+          "name": "hero-split",
+          "instances": [
+            "section.pp-hero"
+          ]
+        },
+        {
+          "name": "quick-actions",
+          "instances": [
+            "section.pp-quick-actions > ul"
+          ]
+        },
+        {
+          "name": "cards-locations",
+          "instances": [
+            ".pp-location-list"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            ".pp-service-list"
+          ]
+        },
+        {
+          "name": "columns-stats",
+          "instances": [
+            ".pp-stats"
+          ]
+        },
+        {
+          "name": "columns-features",
+          "instances": [
+            ".pp-features"
+          ]
+        },
+        {
+          "name": "cards-steps",
+          "instances": [
+            "ol.pp-steps"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "section.pp-media"
+          ]
+        },
+        {
+          "name": "cards-testimonials",
+          "instances": [
+            ".pp-review-list"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero",
+          "selector": [
+            "section.pp-hero"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "quick-actions",
+          "name": "Quick actions",
+          "selector": [
+            "section.pp-quick-actions"
+          ],
+          "style": null,
+          "blocks": [
+            "quick-actions"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "locations",
+          "name": "Locations",
+          "selector": [
+            "section.pp-locations"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-locations"
+          ],
+          "defaultContent": [
+            ".pp-locations > .pp-eyebrow",
+            ".pp-locations > h2",
+            ".pp-locations > p"
+          ]
+        },
+        {
+          "id": "services",
+          "name": "Services",
+          "selector": [
+            "section.pp-services"
+          ],
+          "style": "light, centered",
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            ".pp-services > .pp-eyebrow",
+            ".pp-services > h2",
+            ".pp-services > p"
+          ]
+        },
+        {
+          "id": "why",
+          "name": "Why choose us",
+          "selector": [
+            "section.pp-why"
+          ],
+          "style": "centered",
+          "blocks": [
+            "columns-stats",
+            "columns-features"
+          ],
+          "defaultContent": [
+            ".pp-why > .pp-eyebrow",
+            ".pp-why > h2"
+          ]
+        },
+        {
+          "id": "new-clients",
+          "name": "New-client journey",
+          "selector": [
+            "section.pp-new-clients"
+          ],
+          "style": "dark, centered",
+          "blocks": [
+            "cards-steps"
+          ],
+          "defaultContent": [
+            ".pp-new-clients > .pp-eyebrow",
+            ".pp-new-clients > h2",
+            ".pp-new-clients > p"
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "selector": [
+            "section.pp-team"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "reviews",
+          "name": "Reviews",
+          "selector": [
+            "section.pp-reviews"
+          ],
+          "style": "light, centered",
+          "blocks": [
+            "cards-testimonials"
+          ],
+          "defaultContent": [
+            ".pp-reviews > .pp-eyebrow",
+            ".pp-reviews > h2",
+            ".pp-reviews > p"
+          ]
+        },
+        {
+          "id": "pharmacy",
+          "name": "Pharmacy",
+          "selector": [
+            "section.pp-pharmacy"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "closing",
+          "name": "Closing CTA",
+          "selector": [
+            "section.pp-closing"
+          ],
+          "style": "dark, centered",
+          "blocks": [],
+          "defaultContent": [
+            ".pp-closing > .pp-eyebrow",
+            ".pp-closing > h2",
+            ".pp-closing > p"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "consolidated-nav",
+      "description": "Navigation document (/nav) built from the consolidated source header: brand, menu, Find a Location + Book CTAs, and a utility bar (VO Vets promo, World of Animals utility links + phone).",
+      "urls": [
+        "http://localhost:4600/nav.html"
+      ],
+      "blocks": [],
+      "sections": []
+    },
+    {
+      "name": "consolidated-footer",
+      "description": "Footer document (/footer) built from the consolidated source footer (VO Vets 4-column footer, World of Animals locations list, Heart of Chelsea quick links).",
+      "urls": [
+        "http://localhost:4600/footer.html"
+      ],
+      "blocks": [
+        {
+          "name": "columns-footer",
+          "instances": [
+            "footer.site-footer"
+          ]
+        }
+      ],
+      "sections": []
+    }
+  ]
+}

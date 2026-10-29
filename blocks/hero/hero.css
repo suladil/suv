@@ -30,8 +30,111 @@
   height: 100%;
 }
 
+/* split hero: copy on cream, photo on the right */
+.hero.hero-split {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: var(--light-color);
+  overflow: hidden;
+}
+
+.hero.hero-split .hero-media {
+  position: relative;
+  height: 280px;
+}
+
+.hero.hero-split .hero-media > div {
+  height: 100%;
+}
+
+.hero.hero-split picture {
+  z-index: 0;
+}
+
+.hero.hero-split .hero-content {
+  padding: 40px 24px 48px;
+}
+
+.hero.hero-split .hero-content > div > :first-child {
+  margin-top: 0;
+}
+
+.hero.hero-split h1 {
+  margin: 8px 0 16px;
+  color: var(--brand-navy);
+}
+
+.hero.hero-split h1 em {
+  color: var(--brand-coral);
+}
+
+.hero.hero-split .hero-content p {
+  max-width: 560px;
+  color: var(--muted-text-color);
+}
+
+.hero.hero-split .hero-content p.eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background-color: var(--brand-gold);
+  color: var(--brand-navy);
+}
+
+.hero.hero-split .hero-content .button-container {
+  margin: 8px 12px 0 0;
+}
+
+.hero .hero-locations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero .hero-locations a:any-link {
+  padding: 6px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  background-color: var(--background-color);
+  color: var(--brand-navy);
+  text-decoration: none;
+}
+
+.hero .hero-locations a:hover {
+  border-color: var(--brand-coral);
+  color: var(--brand-coral);
+}
+
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+
+  .hero.hero-split {
+    flex-direction: row-reverse;
+    align-items: stretch;
+    min-height: 580px;
+    padding: 0;
+  }
+
+  .hero.hero-split .hero-media {
+    flex: 0 0 48%;
+    height: auto;
+    border-bottom-left-radius: 160px;
+    overflow: hidden;
+  }
+
+  .hero.hero-split .hero-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 64px 48px 64px max(32px, calc((100vw - 1200px) / 2 + 32px));
   }
 }

@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity -- variant blocks layer rules by design */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,129 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+/* stats: counters (Heart of Chelsea pattern) */
+.columns.stats > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+  text-align: center;
+}
+
+.columns.stats h3 {
+  margin: 0;
+  color: var(--brand-coral);
+  font-size: var(--heading-font-size-xxl);
+  font-variant-numeric: lining-nums;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.columns.stats p {
+  margin: 8px 0 0;
+  color: var(--brand-navy);
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* features: icon differentiators */
+.columns.features > div {
+  gap: 24px;
+}
+
+.columns.features > div > div {
+  box-sizing: border-box;
+  align-self: stretch;
+  padding: 32px 28px;
+  border-radius: var(--radius-m);
+  background-color: var(--background-color);
+  box-shadow: var(--shadow-card);
+}
+
+.columns.features > div > div > :first-child {
+  margin-top: 0;
+}
+
+.columns.features .icon {
+  width: 36px;
+  height: 36px;
+}
+
+.columns.features h3 {
+  margin-top: 12px;
+  font-size: var(--heading-font-size-m);
+}
+
+.columns.features p {
+  color: var(--muted-text-color);
+  font-size: var(--body-font-size-s);
+}
+
+/* media: photo + copy (team, pharmacy) */
+.columns.media > div {
+  gap: 32px;
+}
+
+.columns.media .columns-img-col img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+}
+
+.columns.media > div > div:not(.columns-img-col) > :first-child {
+  margin-top: 0;
+}
+
+.columns.media p:not(.eyebrow, .button-container) {
+  color: var(--muted-text-color);
+}
+
+.columns.media ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.columns.media li {
+  position: relative;
+  margin: 8px 0;
+  padding-left: 30px;
+  color: var(--text-color);
+}
+
+.columns.media li::before {
+  content: '';
+  position: absolute;
+  top: 0.45em;
+  left: 0;
+  width: 16px;
+  height: 10px;
+  border-bottom: 3px solid var(--brand-teal);
+  border-left: 3px solid var(--brand-teal);
+  transform: rotate(-45deg);
+}
+
+@media (width >= 900px) {
+  .columns.stats > div {
+    display: flex;
+  }
+
+  .columns.stats > div > div + div {
+    border-left: 1px solid var(--border-color);
+  }
+
+  .columns.features > div {
+    align-items: stretch;
+  }
+
+  .columns.media > div {
+    gap: 64px;
+  }
+
+  .columns.media .columns-img-col img {
+    aspect-ratio: 5 / 4;
   }
 }

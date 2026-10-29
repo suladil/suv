@@ -136,6 +136,18 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Light (cream)",
+            "value": "light"
+          },
+          {
+            "name": "Dark (navy)",
+            "value": "dark"
+          },
+          {
+            "name": "Centered",
+            "value": "centered"
           }
         ]
       }
@@ -157,6 +169,40 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Variant",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Locations",
+            "value": "locations"
+          },
+          {
+            "name": "Services (icon)",
+            "value": "services"
+          },
+          {
+            "name": "Steps",
+            "value": "steps"
+          },
+          {
+            "name": "Testimonials",
+            "value": "testimonials"
+          }
+        ]
       }
     ]
   },
@@ -227,6 +273,35 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Variant",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "Stats",
+            "value": "stats"
+          },
+          {
+            "name": "Features",
+            "value": "features"
+          },
+          {
+            "name": "Media",
+            "value": "media"
+          },
+          {
+            "name": "Footer links",
+            "value": "footer-links"
+          }
+        ]
       }
     ]
   },
@@ -319,6 +394,24 @@
         "component": "text",
         "name": "linkText",
         "label": "Text"
+      }
+    ]
+  },
+  {
+    "id": "quick-action",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon name (e.g. calendar, paw, pill, emergency)"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Link and short text",
+        "valueType": "string"
       }
     ]
   },

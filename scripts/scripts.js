@@ -133,13 +133,58 @@ export function decorateButtons(element) {
 }
 
 /**
+ * Converts :icon-name: shortcodes left in text (e.g. local previews of plain HTML)
+ * into icon spans. The delivery pipeline normally does this server-side.
+ * @param {Element} element container element
+ */
+function decorateIconShortcodes(element) {
+  const pattern = /:([a-z][a-z0-9-]*):/g;
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    if (pattern.test(walker.currentNode.nodeValue)) nodes.push(walker.currentNode);
+    pattern.lastIndex = 0;
+  }
+  nodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    let last = 0;
+    node.nodeValue.replace(pattern, (match, name, offset) => {
+      fragment.append(node.nodeValue.slice(last, offset));
+      const span = document.createElement('span');
+      span.className = `icon icon-${name}`;
+      fragment.append(span);
+      last = offset + match.length;
+      return match;
+    });
+    fragment.append(node.nodeValue.slice(last));
+    node.replaceWith(fragment);
+  });
+}
+
+/**
+ * Marks short text-only paragraphs placed directly before a heading as eyebrows.
+ * @param {Element} element container element
+ */
+function decorateEyebrows(element) {
+  element.querySelectorAll('h1, h2').forEach((heading) => {
+    const prev = heading.previousElementSibling;
+    if (prev && prev.tagName === 'P' && !prev.children.length
+      && prev.textContent.trim().length <= 60) {
+      prev.classList.add('eyebrow');
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
+  decorateIconShortcodes(main);
   decorateButtons(main);
+  decorateEyebrows(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
